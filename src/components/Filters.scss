@@ -1,0 +1,16 @@
+.filter {
+  text-align: center;
+}
+.filter__label {
+  display: block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+.filter__field {
+  border: 1px solid mix(black, white, 45%);
+  font: inherit;
+  font-size: 30px;
+  padding: 5px 10px;
+}
+.filter__field--text {}

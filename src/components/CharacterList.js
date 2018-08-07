@@ -8,7 +8,7 @@ class CharacterList extends React.Component {
       <ul className="characters">
         {this.props.characters.map((item, index)=>{
           return (
-            <li class="character" key={index}>
+            <li className="character" key={index}>
               <Card item={item} />
             </li>
           );

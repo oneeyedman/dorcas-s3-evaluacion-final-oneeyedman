@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CharacterList from './components/CharacterList';
+import Filters from './components/Filters';
 
 const potterUrl = 'http://hp-api.herokuapp.com/api/characters';
 
@@ -17,8 +18,16 @@ class App extends Component {
     fetch(url)
       .then(res=>res.json())
       .then(data=>{
+
+        const dataWithID = data.map((item, index)=>{
+          return {
+            ...item,
+            id: index
+          }
+        });
+
         this.setState({
-          characters: data
+          characters: dataWithID
         });
       })
   }
@@ -36,6 +45,7 @@ class App extends Component {
         <main className="app__main">
           <section className="app__content">
             <div className="app__filters">
+              <Filters />
             </div>
             
             <div className="app__characters">
