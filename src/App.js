@@ -8,10 +8,19 @@ const potterUrl = 'http://hp-api.herokuapp.com/api/characters';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.updateTitleFilter = this.updateTitleFilter.bind(this);
 
     this.state = {
-      characters: []
+      characters: [],
+      titleFilter: ''
     }
+  }
+
+  updateTitleFilter(e) {
+    const titleFilter = e.currentTarget.value;
+    this.setState({
+      titleFilter: titleFilter
+    }) 
   }
 
   getCharacters(url) {
@@ -45,11 +54,14 @@ class App extends Component {
         <main className="app__main">
           <section className="app__content">
             <div className="app__filters">
-              <Filters />
+              <Filters titleFilterAction={this.updateTitleFilter} />
             </div>
             
             <div className="app__characters">
-              <CharacterList characters={this.state.characters} />
+              <CharacterList 
+              characters={this.state.characters} 
+              titleFilter={this.state.titleFilter}
+              />
             </div>
           </section>
         </main>
