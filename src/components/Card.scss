@@ -1,0 +1,34 @@
+.card {
+  box-shadow: 0 0 6px rgba(#000, .3);
+  width: 218px;
+  background: #ff7e4f;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+}
+.card__cover {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 290px;
+}
+.card__image {
+  display: block;
+  height: 0;
+  width: 0;
+}
+.card__data {
+  padding: 20px;
+}
+.card__name {
+  margin: 0;
+  font-size: 18px;
+  line-height: 20px;
+  min-height: 40px;
+}
+.card__house {
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  min-height: 16px;
+}
