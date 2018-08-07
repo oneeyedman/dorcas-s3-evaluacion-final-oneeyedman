@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import CharacterList from './components/CharacterList';
-import Filters from './components/Filters';
+import Home from './pages/Home';
 
 const potterUrl = 'http://hp-api.herokuapp.com/api/characters';
 
@@ -52,18 +51,8 @@ class App extends Component {
           <h1 className="app__title">Harry Potter Characters</h1>
         </header>
         <main className="app__main">
-          <section className="app__content">
-            <div className="app__filters">
-              <Filters titleFilterAction={this.updateTitleFilter} />
-            </div>
-            
-            <div className="app__characters">
-              <CharacterList 
-              characters={this.state.characters} 
-              titleFilter={this.state.titleFilter}
-              />
-            </div>
-          </section>
+          <Home titleFilterAction={this.updateTitleFilter} characters={this.state.characters} titleFilter={this.state.titleFilter}
+          />
         </main>
       </div>
     );
