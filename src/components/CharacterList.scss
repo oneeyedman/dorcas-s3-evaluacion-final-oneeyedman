@@ -16,4 +16,7 @@
     grid-template-columns: repeat(4, 218px);
   }
 }
-.character {}
+.character__link {
+  text-decoration: none;
+  color: inherit;
+}

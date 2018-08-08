@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Home from './pages/Home';
-import Profile from './components/Profile';
-import {Switch, Route} from 'react-router-dom';
+import Profile from './pages/Profile';
+import {Link, Switch, Route} from 'react-router-dom';
 
 const potterUrl = 'http://hp-api.herokuapp.com/api/characters';
 
@@ -52,14 +52,14 @@ class App extends Component {
         <header className="app__header">
           <h1 className="app__title">Harry Potter Characters</h1>
           <Switch>
-            <Route path="/profile" render={() => <div>Volver</div>} />
+            <Route path="/profile" render={() => <Link to="/" className="app__back-btn">Volver</Link>} />
           </Switch>
         </header>
         <main className="app__main">
         <Switch>
           <Route exact path="/" render={ () => <Home titleFilterAction={this.updateTitleFilter} characters={this.state.characters} titleFilter={this.state.titleFilter}
           />} />
-          <Route path="/profile/:id" render={(props) => <Profile match={props.match} />} />
+          <Route path="/profile/:id" render={(props) => <Profile match={props.match} characters={this.state.characters} />} />
         </Switch>
         </main>
       </div>

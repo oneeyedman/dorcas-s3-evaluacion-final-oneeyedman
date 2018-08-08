@@ -4,11 +4,30 @@
 }
 .app__header {
   padding: 50px 20px 30px;
-
+  text-align: center;
+  @media all and (min-width: 500px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .app__title {
   margin: 0;
-  text-align: center;
+}
+.app__back-btn {
+  border: 1px solid mix(#000, #fff, 45%);
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  color: #888;
+  margin-top: 10px;
+  display: inline-block;
+  @media all and (min-width: 500px) {
+    margin-top: 4px;
+    margin-left: 20px;
+  }
 }
 .app__filters {
   border: 1px solid rgba(#000, .3);
