@@ -10,11 +10,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.updateTitleFilter = this.updateTitleFilter.bind(this);
+    this.resetFilter = this.resetFilter.bind(this);
 
     this.state = {
       characters: [],
       titleFilter: ''
     }
+  }
+
+  resetFilter() {
+    this.setState({
+      titleFilter: ''
+    })
   }
 
   updateTitleFilter(e) {
@@ -59,7 +66,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={ () => <Home titleFilterAction={this.updateTitleFilter} characters={this.state.characters} titleFilter={this.state.titleFilter} miniCard={true}
           />} />
-          <Route path="/profile/:id" render={(props) => <Profile match={props.match} characters={this.state.characters} miniCard={false} />} />
+          <Route path="/profile/:id" render={(props) => <Profile match={props.match} characters={this.state.characters} miniCard={false} resetFilter={this.resetFilter} />} />
         </Switch>
         </main>
       </div>

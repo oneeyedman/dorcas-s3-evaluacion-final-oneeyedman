@@ -2,6 +2,9 @@ import React from "react";
 import Card from '../components/Card';
 
 class Profile extends React.Component {
+  componentWillUnmount() {
+    this.props.resetFilter();
+  }
   render() {
     const id = this.props.match.params.id;
     const characters = this.props.characters;

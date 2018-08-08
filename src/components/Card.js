@@ -17,21 +17,21 @@ class Card extends React.Component {
       </div>
     );
 
-    const notAlive = <i class="fas fa-skull"></i>;
-    const alive = <i class="fas fa-heart"></i>;
+    const notAlive = <i className="fas fa-skull"></i>;
+    const alive = <i className="fas fa-heart"></i>;
     const house = (
       <p className="card__data-item card__data-item--house">
-        <span class="card__data-label">Casa:</span> {this.props.item.house}
+        <span className="card__data-label">Casa:</span> {this.props.item.house}
       </p>
     );
     const yob = (
       <p className="card__data-item card__data-item--yob">
-        <span class="card__data-label">Nacimiento:</span> {this.props.item.yearOfBirth}
+        <span className="card__data-label">Nacimiento:</span> {this.props.item.yearOfBirth}
       </p>
     );
     const patronus = (
       <p className="card__data-item card__data-item--patronus">
-        <span class="card__data-label">Patronus:</span> {this.props.item.patronus}
+        <span className="card__data-label">Patronus:</span> {this.props.item.patronus}
       </p>
     );
 
