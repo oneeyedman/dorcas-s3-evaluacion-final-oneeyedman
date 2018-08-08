@@ -14,6 +14,7 @@ class Home extends React.Component {
           <CharacterList 
           characters={this.props.characters} 
           titleFilter={this.props.titleFilter}
+          miniCard={this.props.miniCard}
           />
         </div>
       </section>

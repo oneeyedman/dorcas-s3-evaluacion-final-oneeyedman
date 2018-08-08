@@ -8,7 +8,7 @@ class Profile extends React.Component {
 
     if (characters.length >= 1) {
       return (
-        <Card item={characters[id]} />
+        <Card item={characters[id]} mini={this.props.miniCard} />
       );
     } else {
       return (

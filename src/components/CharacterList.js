@@ -14,7 +14,7 @@ class CharacterList extends React.Component {
           .map((item, index) =>{
             return (
               <li className="character" key={item.id}>
-                <Link to={`/profile/${item.id}`} className="character__link"><Card item={item} /></Link>
+                <Link to={`/profile/${item.id}`} className="character__link"><Card item={item} mini={this.props.miniCard} /></Link>
               </li>
             );
           })}

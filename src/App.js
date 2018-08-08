@@ -57,9 +57,9 @@ class App extends Component {
         </header>
         <main className="app__main">
         <Switch>
-          <Route exact path="/" render={ () => <Home titleFilterAction={this.updateTitleFilter} characters={this.state.characters} titleFilter={this.state.titleFilter}
+          <Route exact path="/" render={ () => <Home titleFilterAction={this.updateTitleFilter} characters={this.state.characters} titleFilter={this.state.titleFilter} miniCard={true}
           />} />
-          <Route path="/profile/:id" render={(props) => <Profile match={props.match} characters={this.state.characters} />} />
+          <Route path="/profile/:id" render={(props) => <Profile match={props.match} characters={this.state.characters} miniCard={false} />} />
         </Switch>
         </main>
       </div>

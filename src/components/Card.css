@@ -20,14 +20,67 @@
 .card__data {
   padding: 20px; }
 
-.card__name {
-  margin: 0;
+.card__data-item {
+  margin: 0 0 15px; }
+
+.card__data-label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  opacity: .7;
+  margin-bottom: 5px; }
+
+.card__data-item--name {
   font-size: 18px;
   line-height: 20px;
   min-height: 40px; }
 
-.card__house {
-  margin: 0;
-  font-size: 14px;
+.card__data-item--house {
   line-height: 16px;
   min-height: 16px; }
+
+.card--full {
+  width: 436px;
+  display: flex; }
+  .card--full .card__cover {
+    width: 218px; }
+  .card--full .card__data {
+    text-align: left; }
+  .card--full .card__data-item--name {
+    min-height: auto;
+    margin-bottom: 20px; }
+
+.card--gryffindor .card__cover,
+.card--slytherin .card__cover,
+.card--hufflepuff .card__cover,
+.card--ravenclaw .card__cover {
+  position: relative; }
+  .card--gryffindor .card__cover::after,
+  .card--slytherin .card__cover::after,
+  .card--hufflepuff .card__cover::after,
+  .card--ravenclaw .card__cover::after {
+    content: '';
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 6px;
+    position: absolute;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    transition: height ease .8s; }
+  .card--gryffindor .card__cover:hover::after,
+  .card--slytherin .card__cover:hover::after,
+  .card--hufflepuff .card__cover:hover::after,
+  .card--ravenclaw .card__cover:hover::after {
+    height: 30px; }
+
+.card--gryffindor .card__cover::after {
+  background: linear-gradient(to right, #750104 0%, #750104 20%, #F8B72F 20%, #F8B72F 40%, #DC8220 40%, #DC8220 60%, #A70605 60%, #A70605 80%, #0B0200 80%, #0B0200 100%); }
+
+.card--slytherin .card__cover::after {
+  background: linear-gradient(to right, #29A44A 0%, #29A44A 20%, #1C3F1E 20%, #1C3F1E 40%, #F2F2F2 40%, #F2F2F2 60%, #5A5A5A 60%, #5A5A5A 80%, #252525 80%, #252525 100%); }
+
+.card--hufflepuff .card__cover::after {
+  background: linear-gradient(to right, #ecb939 0%, #ecb939 20%, #f0c75e 20%, #f0c75e 40%, #726255 40%, #726255 60%, #372e29 60%, #372e29 80%, #000000 80%, #000000 100%); }
+
+.card--ravenclaw .card__cover::after {
+  background: linear-gradient(to right, #084DA6 0%, #084DA6 20%, #073359 20%, #073359 40%, #0B1C26 40%, #0B1C26 60%, #F2A950 60%, #F2A950 80%, #D97A43 80%, #D97A43 100%); }
