@@ -10,6 +10,7 @@ class Home extends React.Component {
           <Filters 
           titleFilterAction={this.props.titleFilterAction}
           aliveFilterAction= {this.props.aliveFilterAction}
+          aliveFilter={this.props.aliveFilter}
            />
         </div>
         

@@ -14,13 +14,37 @@ class Filters extends React.Component {
           <span className="filter__label">Nombre</span>
           <ul className="filter__multiple-options">
             <li className="filter__multiple-option">
-              <input type="radio" id="alive-filter-all" name="alive-filter" value="all" className="filter__multiple-radio" onChange={this.props.aliveFilterAction} /> Todos
+              <input 
+              type="radio" 
+              id="alive-filter-all" 
+              name="alive-filter" 
+              value="all" 
+              className="filter__multiple-radio" 
+              onChange={this.props.aliveFilterAction} 
+              checked={(this.props.aliveFilter === 'all')? 'checked':false}
+              /> Todos
             </li>
             <li className="filter__multiple-option">
-              <input type="radio" id="alive-filter-alive" name="alive-filter" value="true" className="filter__multiple-radio" onChange={this.props.aliveFilterAction} /> Vivos
+              <input 
+              type="radio" 
+              id="alive-filter-alive" 
+              name="alive-filter" 
+              value="true"
+              className="filter__multiple-radio" 
+              onChange={this.props.aliveFilterAction} 
+              checked={(this.props.aliveFilter === 'true')? 'checked':false}
+              /> Vivos
             </li>
             <li className="filter__multiple-option">
-              <input type="radio" id="alive-filter-dead" name="alive-filter" value="false" className="filter__multiple-radio" onChange={this.props.aliveFilterAction} /> Muertos
+              <input 
+              type="radio" 
+              id="alive-filter-dead" 
+              name="alive-filter" 
+              value="false" 
+              className="filter__multiple-radio" 
+              onChange={this.props.aliveFilterAction} 
+              checked={(this.props.aliveFilter === 'false')? 'checked':false}
+              /> Muertos
             </li>
           </ul>
         </div>
