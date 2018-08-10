@@ -11,6 +11,17 @@ class CharacterList extends React.Component {
           .filter(item => {
             return item.name.toLowerCase().includes(this.props.titleFilter.toLowerCase())
           })
+          .filter(item => {
+            if (this.props.aliveFilter === 'all') {
+              return true;
+            } else {
+              if (this.props.aliveFilter === 'true') {
+                return item.alive === true;
+              } else {
+                return item.alive === false;
+              }
+            }
+          })
           .map((item, index) =>{
             return (
               <li className="character" key={item.id}>

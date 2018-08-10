@@ -11,10 +11,12 @@ class App extends Component {
     super(props);
     this.updateTitleFilter = this.updateTitleFilter.bind(this);
     this.resetFilter = this.resetFilter.bind(this);
+    this.updateAliveFilter = this.updateAliveFilter.bind(this);
 
     this.state = {
       characters: [],
-      titleFilter: ''
+      titleFilter: '',
+      aliveFilter: 'all'
     }
   }
 
@@ -29,6 +31,13 @@ class App extends Component {
     this.setState({
       titleFilter: titleFilter
     }) 
+  }
+
+  updateAliveFilter(e) {
+    const aliveFilter = e.currentTarget.value;
+    this.setState({
+      aliveFilter: aliveFilter
+    });
   }
 
   getCharacters(url) {
@@ -64,7 +73,7 @@ class App extends Component {
         </header>
         <main className="app__main">
         <Switch>
-          <Route exact path="/" render={ () => <Home titleFilterAction={this.updateTitleFilter} characters={this.state.characters} titleFilter={this.state.titleFilter} miniCard={true}
+          <Route exact path="/" render={ () => <Home titleFilterAction={this.updateTitleFilter} characters={this.state.characters} titleFilter={this.state.titleFilter} miniCard={true} aliveFilter={this.state.aliveFilter} aliveFilterAction={this.updateAliveFilter}
           />} />
           <Route path="/profile/:id" render={(props) => <Profile match={props.match} characters={this.state.characters} miniCard={false} resetFilter={this.resetFilter} />} />
         </Switch>
