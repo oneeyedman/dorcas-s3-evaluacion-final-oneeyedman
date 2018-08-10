@@ -10,19 +10,44 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.updateTitleFilter = this.updateTitleFilter.bind(this);
-    this.resetFilter = this.resetFilter.bind(this);
+    this.resetFilters = this.resetFilters.bind(this);
     this.updateAliveFilter = this.updateAliveFilter.bind(this);
 
     this.state = {
       characters: [],
+      results: [],
       titleFilter: '',
       aliveFilter: 'all'
     }
   }
 
-  resetFilter() {
+  filterCharacters() {
+    const filteredResults = this.state.characters.filter(item => {
+      return item.name.toLowerCase().includes(this.state.titleFilter.toLowerCase())
+    })
+    .filter(item => {
+      if (this.state.aliveFilter === 'all') {
+        return true;
+      } else {
+        if (this.state.aliveFilter === 'true') {
+          return item.alive === true;
+        } else {
+          return item.alive === false;
+        }
+      }
+    });
+    return filteredResults;
+  }
+
+  getCharacter(id) {
+    const results = this.filterCharacters();
+    return results[id];
+  }
+  
+  resetFilters() {
     this.setState({
-      titleFilter: ''
+      titleFilter: '',
+      aliveFilter: 'all'
     })
   }
 
@@ -44,16 +69,8 @@ class App extends Component {
     fetch(url)
       .then(res=>res.json())
       .then(data=>{
-
-        const dataWithID = data.map((item, index)=>{
-          return {
-            ...item,
-            id: index
-          }
-        });
-
         this.setState({
-          characters: dataWithID
+          characters: data
         });
       })
   }
@@ -73,9 +90,19 @@ class App extends Component {
         </header>
         <main className="app__main">
         <Switch>
-          <Route exact path="/" render={ () => <Home titleFilterAction={this.updateTitleFilter} characters={this.state.characters} titleFilter={this.state.titleFilter} miniCard={true} aliveFilter={this.state.aliveFilter} aliveFilterAction={this.updateAliveFilter}
+          <Route exact path="/" render={ () => <Home 
+            characters={this.filterCharacters()} 
+            miniCard={true} 
+            titleFilter={this.state.titleFilter}
+            titleFilterAction={this.updateTitleFilter}
+            aliveFilter={this.state.aliveFilter}
+            aliveFilterAction={this.updateAliveFilter}
           />} />
-          <Route path="/profile/:id" render={(props) => <Profile match={props.match} characters={this.state.characters} miniCard={false} resetFilter={this.resetFilter} />} />
+          <Route path="/profile/:id" render={(props) => <Profile 
+            character={this.getCharacter(props.match.params.id)}
+            miniCard={false} 
+            resetFilters={this.resetFilters} 
+            />} />
         </Switch>
         </main>
       </div>
