@@ -3,22 +3,25 @@ import Card from '../components/Card';
 
 class Profile extends React.Component {
   componentWillUnmount() {
-    this.props.resetFilter();
+    this.props.resetFilters();
   }
   render() {
-    const id = this.props.match.params.id;
-    const characters = this.props.characters;
+    const {character, miniCard} = this.props;
+    return (
+      <Card item={character} mini={miniCard} />
+    );
+  }
+}
 
-    if (characters.length >= 1) {
-      return (
-        <Card item={characters[id]} mini={this.props.miniCard} />
-      );
-    } else {
-      return (
-        <p className="warning">No hay nada que mirar aquí</p>
-      );
-    }
-
+Profile.defaultProps = {
+  mini: false,
+  character : {
+    name: "Full name",
+    alive: false,
+    house: "House name",
+    patronus: "undefined",
+    yearOfBirth: '19XX',
+    image: 'https://placehold.it/218x290'
   }
 }
 
