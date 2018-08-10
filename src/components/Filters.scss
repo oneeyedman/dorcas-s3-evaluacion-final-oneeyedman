@@ -1,5 +1,8 @@
 .filter {
   text-align: center;
+  & + .filter {
+    margin-top: 20px;
+  }
 }
 .filter__label {
   display: block;
@@ -14,3 +17,17 @@
   padding: 5px 10px;
 }
 .filter__field--text {}
+
+.filter__multiple-options {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.filter__multiple-option {
+  & + .filter__multiple-option {
+    margin-left: 2em;
+  }
+}
+.filter__multiple-radio {
+  zoom: 1.5;
+}
