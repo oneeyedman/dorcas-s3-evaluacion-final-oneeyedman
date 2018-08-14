@@ -8,9 +8,8 @@ class Home extends React.Component {
       <section className="app__content">
         <div className="app__filters">
           <Filters 
+          titleFilter={this.props.titleFilter}
           titleFilterAction={this.props.titleFilterAction}
-          aliveFilterAction= {this.props.aliveFilterAction}
-          aliveFilter={this.props.aliveFilter}
            />
         </div>
         
@@ -19,7 +18,6 @@ class Home extends React.Component {
           characters={this.props.characters} 
           titleFilter={this.props.titleFilter}
           miniCard={this.props.miniCard}
-          aliveFilter={this.props.aliveFilter}
           />
         </div>
       </section>

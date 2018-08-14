@@ -11,30 +11,16 @@ class App extends Component {
     super(props);
     this.updateTitleFilter = this.updateTitleFilter.bind(this);
     this.resetFilters = this.resetFilters.bind(this);
-    this.updateAliveFilter = this.updateAliveFilter.bind(this);
 
     this.state = {
       characters: [],
-      results: [],
-      titleFilter: '',
-      aliveFilter: 'all'
+      titleFilter: ''
     }
   }
 
   filterCharacters() {
     const filteredResults = this.state.characters.filter(item => {
       return item.name.toLowerCase().includes(this.state.titleFilter.toLowerCase())
-    })
-    .filter(item => {
-      if (this.state.aliveFilter === 'all') {
-        return true;
-      } else {
-        if (this.state.aliveFilter === 'true') {
-          return item.alive === true;
-        } else {
-          return item.alive === false;
-        }
-      }
     });
     return filteredResults;
   }
@@ -46,8 +32,7 @@ class App extends Component {
   
   resetFilters() {
     this.setState({
-      titleFilter: '',
-      aliveFilter: 'all'
+      titleFilter: ''
     })
   }
 
@@ -56,13 +41,6 @@ class App extends Component {
     this.setState({
       titleFilter: titleFilter
     }) 
-  }
-
-  updateAliveFilter(e) {
-    const aliveFilter = e.currentTarget.value;
-    this.setState({
-      aliveFilter: aliveFilter
-    });
   }
 
   getCharacters(url) {
@@ -95,8 +73,6 @@ class App extends Component {
             miniCard={true} 
             titleFilter={this.state.titleFilter}
             titleFilterAction={this.updateTitleFilter}
-            aliveFilter={this.state.aliveFilter}
-            aliveFilterAction={this.updateAliveFilter}
           />} />
           <Route path="/profile/:id" render={(props) => <Profile 
             character={this.getCharacter(props.match.params.id)}
